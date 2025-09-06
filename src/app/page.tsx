@@ -9,7 +9,7 @@ import {
 
 export default function Home() {
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <Sidebar>
         <AppSidebarNav />
       </Sidebar>
