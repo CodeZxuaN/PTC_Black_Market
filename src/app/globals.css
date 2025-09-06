@@ -90,3 +90,9 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer components {
+  .bg-card {
+    background-color: hsl(var(--card) / 0.8);
+  }
+}

@@ -12,7 +12,7 @@ import { Upload } from 'lucide-react';
 import Image from 'next/image';
 
 const Section: FC<React.PropsWithChildren<{ id: string, title: string, className?: string }>> = ({ id, title, children, className }) => (
-    <section id={id} className={`bg-card/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-border shadow-lg mb-8 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 ${className}`}>
+    <section id={id} className={`bg-card p-6 md:p-8 rounded-2xl border border-border shadow-lg mb-8 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 ${className}`}>
         <h2 className="font-headline text-3xl font-bold text-primary mb-4" style={{ textShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>{title}</h2>
         <div className="space-y-4 text-foreground/80 text-lg">
             {children}
@@ -61,7 +61,7 @@ export function MainPage() {
         </Section>
 
       <section id="resources" className="scroll-mt-20">
-        <Card className="bg-card/80 backdrop-blur-sm border-border shadow-lg">
+        <Card className="bg-card">
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <CardTitle className="font-headline text-3xl font-bold text-primary" style={{ textShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>
@@ -120,13 +120,17 @@ export function MainPage() {
       </section>
 
        <div className="grid md:grid-cols-2 gap-8 mt-8">
-            <Section id="developer-info" title="Developer Info">
-                <p>Developed by Skilled Engineer X, specializing in web development with modern UI/UX practices. Expertise in creating smooth, animated backgrounds and responsive interfaces.</p>
-                <Image src="https://picsum.photos/300/200" alt="Modern workspace" data-ai-hint="modern workspace" width={300} height={200} className="mt-4 rounded-lg shadow-lg" />
+            <Section id="developer-info" title="About the Developers">
+               <div className="flex flex-col sm:flex-row gap-6 items-center">
+                    <Image src="https://picsum.photos/300/200" alt="Modern workspace" data-ai-hint="modern workspace" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
+                    <p>This platform was envisioned and brought to life by a team of passionate developers dedicated to improving the student experience at PTC.</p>
+                </div>
             </Section>
-            <Section id="co-developer-info" title="Co-Developer Info">
-                <p>Co-developed with Designer Y, who contributed to the elegant design elements, including the animated polygon background and smooth transitions for a sleek, professional look.</p>
-                <Image src="https://picsum.photos/300/200" alt="Collaborative design studio" data-ai-hint="design studio" width={300} height={200} className="mt-4 rounded-lg shadow-lg" />
+            <Section id="co-developer-info" title="Our Mission">
+                 <div className="flex flex-col sm:flex-row gap-6 items-center">
+                    <Image src="https://picsum.photos/300/200" alt="Collaborative design studio" data-ai-hint="design studio" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
+                    <p>Our mission is to create elegant, functional, and user-friendly tools that foster collaboration and simplify access to educational resources.</p>
+                </div>
             </Section>
         </div>
 
