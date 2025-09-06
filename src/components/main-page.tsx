@@ -122,13 +122,13 @@ export function MainPage() {
        <div className="grid md:grid-cols-2 gap-8 mt-8">
             <Section id="developer-info" title="About the Developers">
                <div className="flex flex-col sm:flex-row gap-6 items-center">
-                    <Image src="https://picsum.photos/300/200" alt="Modern workspace" data-ai-hint="modern workspace" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
+                    <Image src="https://picsum.photos/150/150" alt="Modern workspace" data-ai-hint="modern workspace" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
                     <p>This platform was envisioned and brought to life by a team of passionate developers dedicated to improving the student experience at PTC.</p>
                 </div>
             </Section>
             <Section id="co-developer-info" title="Our Mission">
                  <div className="flex flex-col sm:flex-row gap-6 items-center">
-                    <Image src="https://picsum.photos/300/200" alt="Collaborative design studio" data-ai-hint="design studio" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
+                    <Image src="https://picsum.photos/150/150" alt="Collaborative design studio" data-ai-hint="design studio" width={150} height={150} className="rounded-full shadow-lg object-cover w-[150px] h-[150px]" />
                     <p>Our mission is to create elegant, functional, and user-friendly tools that foster collaboration and simplify access to educational resources.</p>
                 </div>
             </Section>
