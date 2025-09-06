@@ -17,7 +17,7 @@ export function ResourceCard({ resource }: ResourceCardProps) {
 
   return (
     <>
-      <Card className="h-full flex flex-col bg-card/70 hover:border-primary/60 transition-colors duration-300">
+      <Card className="h-full flex flex-col bg-card/70 hover:border-primary/60 transition-colors duration-300 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-lg font-bold text-primary/90">{resource.title}</CardTitle>
           <CardDescription>{resource.description}</CardDescription>

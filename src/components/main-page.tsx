@@ -12,7 +12,7 @@ import { Upload } from 'lucide-react';
 import Image from 'next/image';
 
 const Section: FC<React.PropsWithChildren<{ id: string, title: string, className?: string }>> = ({ id, title, children, className }) => (
-    <section id={id} className={`bg-card p-6 md:p-8 rounded-2xl border border-border shadow-lg mb-8 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 ${className}`}>
+    <section id={id} className={`bg-transparent p-6 md:p-8 rounded-2xl border border-border shadow-lg mb-8 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 ${className}`}>
         <h2 className="font-headline text-3xl font-bold text-primary mb-4" style={{ textShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>{title}</h2>
         <div className="space-y-4 text-foreground/80 text-lg">
             {children}
@@ -61,7 +61,7 @@ export function MainPage() {
         </Section>
 
       <section id="resources" className="scroll-mt-20">
-        <Card className="bg-card">
+        <Card className="bg-transparent">
           <CardHeader>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <CardTitle className="font-headline text-3xl font-bold text-primary" style={{ textShadow: '0 0 12px hsl(var(--primary) / 0.5)' }}>
