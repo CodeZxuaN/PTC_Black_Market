@@ -20,13 +20,13 @@ export function BackgroundCanvas() {
     canvas.height = height;
 
     const polygons: Polygon[] = [];
-    const polygonCount = isMobile ? 4 : 10;
-    const pointsPerPolygon = 5;
-    const baseRadius = 100;
-    const maxRadiusVariation = 30;
-    const maxSpeed = 0.15;
-    const connectionDistance = isMobile ? 200 : 300;
-    const pulseSpeed = 0.005;
+    const polygonCount = isMobile ? 8 : 15;
+    const pointsPerPolygon = 6;
+    const baseRadius = 80;
+    const maxRadiusVariation = 40;
+    const maxSpeed = 0.2;
+    const connectionDistance = isMobile ? 180 : 250;
+    const pulseSpeed = 0.004;
     
     let animationFrameId: number;
 
@@ -52,13 +52,13 @@ export function BackgroundCanvas() {
         this.angleOffset = Math.random() * 2 * Math.PI;
         this.angularVelocity = (Math.random() - 0.5) * 0.002;
         this.pulsePhase = Math.random() * Math.PI * 2;
-        this.pulseAmount = 5 + Math.random() * 10;
+        this.pulseAmount = 5 + Math.random() * 15;
 
         for (let i = 0; i < pointCount; i++) {
           const angle = (i / pointCount) * 2 * Math.PI;
           this.points.push({
             angle: angle,
-            radiusOffset: (Math.random() - 0.5) * 15,
+            radiusOffset: (Math.random() - 0.5) * 20,
           });
         }
       }
@@ -67,7 +67,7 @@ export function BackgroundCanvas() {
         this.center.x += this.vx;
         this.center.y += this.vy;
 
-        const padding = this.radius + 50;
+        const padding = this.radius + 60;
         if (this.center.x < -padding) this.center.x = width + padding;
         if (this.center.x > width + padding) this.center.x = -padding;
         if (this.center.y < -padding) this.center.y = height + padding;
@@ -93,10 +93,10 @@ export function BackgroundCanvas() {
       }
 
       draw(ctx: CanvasRenderingContext2D) {
-        ctx.strokeStyle = 'rgba(160, 200, 255, 0.4)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.lineWidth = 1;
-        ctx.shadowColor = 'rgba(74, 144, 226, 0.5)';
-        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+        ctx.shadowBlur = 10;
         
         const points = this.getPoints();
 
@@ -108,12 +108,12 @@ export function BackgroundCanvas() {
         ctx.closePath();
         ctx.stroke();
 
-        ctx.fillStyle = 'rgba(160, 200, 255, 0.8)';
-        ctx.shadowColor = 'rgba(160, 200, 255, 0.8)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.7)';
         ctx.shadowBlur = 15;
         points.forEach(point => {
           ctx.beginPath();
-          ctx.arc(point.x, point.y, 2.5, 0, 2 * Math.PI);
+          ctx.arc(point.x, point.y, 2, 0, 2 * Math.PI);
           ctx.fill();
         });
         ctx.shadowBlur = 0;
@@ -138,8 +138,8 @@ export function BackgroundCanvas() {
 
     const drawConnections = (ctx: CanvasRenderingContext2D) => {
       ctx.lineWidth = 0.5;
-      ctx.shadowBlur = 4;
-      ctx.shadowColor = 'rgba(74, 144, 226, 0.2)';
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.2)';
 
       const allPoints = polygons.flatMap(poly => poly.getPoints());
 
@@ -150,8 +150,8 @@ export function BackgroundCanvas() {
           const distance = Math.hypot(p2.x - p1.x, p2.y - p1.y);
 
           if (distance < connectionDistance) {
-            const opacity = 0.2 * (1 - distance / connectionDistance);
-            ctx.strokeStyle = `rgba(160, 200, 255, ${opacity})`;
+            const opacity = 0.25 * (1 - distance / connectionDistance);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -181,5 +181,5 @@ export function BackgroundCanvas() {
     };
   }, [isMobile]);
 
-  return <canvas ref={canvasRef} id="backgroundCanvas" className="fixed top-0 left-0 -z-10" />;
+  return <canvas ref={canvasRef} id="backgroundCanvas" className="fixed top-0 left-0 -z-10 bg-black" />;
 }
